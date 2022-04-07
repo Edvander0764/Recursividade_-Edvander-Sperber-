@@ -6,14 +6,14 @@ int main()
 {
     int base, expoente, resultado;
 
-    printf("Digite a base deseja para o calculo de potencia ");
+    printf("\nDigite a base deseja para o calculo de potencia ");
     scanf("%d", &base);
     printf("\nDigite o expoente desejado ");
     scanf("%d", &expoente);
 
     resultado = potencia(base,expoente);
     
-    printf("%d elevado a %d = %d", base, expoente,resultado);
+    printf("\n%d elevado a %d = %d\n\n", base, expoente,resultado);
 
     return 0;
 }
