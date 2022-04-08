@@ -2,32 +2,43 @@
 #include <stdlib.h>
 #include <string.h>
 
-void inverter(char vetor[]);
+void inverter(char palavra[], int n);
 
 int main()
 {
-    char palavra[50];
+  int tamanho;
+  char palavra[100];
 
-    printf("\nEntre com uma palavra: ");
-    scanf(" %[^\n]s", palavra);
+  printf("\nDigite uma palavra ou frase que tu desejas inverter: ");
+  scanf(" %[^\n]s", palavra);
 
-    inverter(palavra);
-    printf("\n%s\n\n", palavra);
+  tamanho = strlen(palavra);
 
-    return 0;
+  inverter(palavra,tamanho);
+
+  return 0;
 }
 
-void inverter(char vetor[])
+void inverter(char palavra[], int n)
 {
-    int tamanho = strlen(vetor), nCont, troca, final;
-
-    final = tamanho - 1;
-
-    for (nCont = 0 ; nCont < tamanho/2 ; nCont++)
+    int nCont;
+  
+    if(n == 1)
+    {        
+        printf("\n%c\n\n",palavra[n-1]);
+    }
+    else 
     {
-        troca = vetor[nCont];
-        vetor[nCont] = vetor[final];
-        vetor[final] = troca;
-        final--;
+        printf("\n");
+
+        if(n>1)
+        {
+            for(nCont = 0 ; nCont < n ; n--)
+            {
+               printf("%c",palavra[n-1]);
+            }
+        }
+
+        printf("\n\n");
     }
 }
