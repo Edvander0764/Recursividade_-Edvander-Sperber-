@@ -1,40 +1,35 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include<stdio.h>
 
-int expression (int repet);
+int exponent(int a, int b, int expo);
 
 int main()
 {
-    int n; 
+    int num1, num2, expoente, resultado;
 
-    printf("\nEntre com um valor 'n' com no máximo 2 algarismos: ");
-    scanf("%d", &n);
+    printf("\n>>>Para a^n * b^n<<<\n");        
 
-    expression(n);
+    printf("\nDigite o valor de 'a': ");
+    scanf("%d", &num1);
+    printf("\nDigite 'b': ");
+    scanf("%d", &num2);
+    printf("\nDigite o expoente 'n' desejado: ");
+    scanf("%d", &expoente);
 
-    return 0;
+    resultado = exponent(num1, num2, expoente);
+
+    printf("\nO resultado de (%d^%d)*(%d^%d) e: %d\n\n", num1, expoente, num2, expoente, resultado);
+    
+    return 0; 
 }
 
-int expression (int repeat)
+int exponent(int a, int b, int expo)
 {
-    printf("\n");
-    int num = repeat;
-    if (num == 0)
+    if(expo==0)
     {
-       return printf("Essa expressão é igual a 1\n\n");
+        return 1;
     }
     else
     {
-        int aCont, bCont;
-
-        for (aCont = 0 ; aCont < num ; aCont++)
-        {
-            printf("a");
-        }
-        for (bCont = 0 ; bCont < num ; bCont++)
-        {
-            printf("b");
-        }
+        return a * b * exponent(a , b, expo - 1);
     }
-    printf("\n\n");
 }
